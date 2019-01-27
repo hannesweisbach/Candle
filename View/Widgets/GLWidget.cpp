@@ -15,18 +15,12 @@
 
 #define ZOOMSTEP 1.1
 
-#ifdef GLES
 GLWidget::GLWidget(QWidget *parent)
     : QOpenGLWidget(parent),
+      mNearPlane(2),
       mShaderProgram(nullptr),
-#else
-GLWidget::GLWidget(QWidget *parent)
-    : QGLWidget(parent),
-      mShaderProgram(nullptr),
-#endif
-     mColorText(QColor("White")),
-     mColorBackground(QColor("#ededed")),
-     mNearPlane(2)
+      mColorBackground(QColor("#ededed")),
+      mColorText(QColor("White"))
 {
     mAnimateView = false;
     mUpdatesEnabled = false;
