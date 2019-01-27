@@ -3,11 +3,8 @@
 
 #pragma once
 
-#ifndef GLES
-#include <QGLWidget>
-#else
 #include <QOpenGLWidget>
-#endif
+#include <QOpenGLFunctions>
 
 #include <QMetaType>
 #include <QTimer>
@@ -15,11 +12,7 @@
 #include "View/Drawers/ShaderDrawable.h"
 
 
-#ifdef GLES
-class GLWidget : public QOpenGLWidget
-#else
-class GLWidget : public QGLWidget, protected QOpenGLFunctions
-#endif
+class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {
     Q_OBJECT
 public:

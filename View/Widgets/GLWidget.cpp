@@ -579,10 +579,6 @@ void GLWidget::paintGL()
     painter.drawText(QPoint(width() - fm.width(str) - 10, y + 15), str);
 
     mFrames++;
-
-#ifdef GLES
-    update();
-#endif
 }
 
 void GLWidget::mousePressEvent(QMouseEvent *event)

@@ -7,6 +7,8 @@
 #include <QTranslator>
 #include <QFile>
 
+#include <QSurfaceFormat>
+
 #include "Controller/MainFormController.h"
 
 void initLocales(QApplication &a)
@@ -34,10 +36,11 @@ void initLocales(QApplication &a)
 
 void initGL()
 {
-    QGLFormat glf = QGLFormat::defaultFormat();
-    glf.setSampleBuffers(true);
-    glf.setSamples(8);
-    QGLFormat::setDefaultFormat(glf);
+#if 0
+    QSurfaceFormat fmt = QSurfaceFormat::defaultFormat();;
+    fmt.setSamples(8);
+    QSurfaceFormat::setDefaultFormat(fmt);
+#endif
 }
 
 int main(int argc, char *argv[])
